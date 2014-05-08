@@ -2,7 +2,6 @@
     "name" : "SampleGrunt",
     "version" : "0.1.0",
     "author" : "Andre Nardy",
-    "private" : true,
 
     "devDependencies" : {
         "grunt" :                   	"~0.4.0",
