@@ -22,7 +22,7 @@ window.addEventListener('load', function(){
         }
         else {
             validation.innerHTML = 'Looks bad! :(';
-            validation.className = "validation nope"
+            validation.className = "validation nope";
             _this.className = "nope";
         }
 
