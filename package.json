@@ -15,7 +15,7 @@
         "matchdep":                     "*",
 		"grunt-contrib-jshint": 		"*"
     },
-	"scritps": {
+	"scripts": {
 		"test": "grunt --verbose"
 	}
 }
