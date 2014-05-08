@@ -6,7 +6,7 @@ function Validator()
 Validator.prototype.checkName = function(name)
 {
     "use strict";
-    return (/[^a-z]/i.test(name) === false);
+    return (/[^a-z]/i.test(name) === false)
 };
 
 window.addEventListener('load', function(){
