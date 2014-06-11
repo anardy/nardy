@@ -4,7 +4,7 @@
 		function _xmlhttp() {
 			// If XMLHttpRequest is available then using it
 			if (typeof XMLHttpRequest !== undefined) {
-				return new XMLHttpRequest;
+				return new XMLHttpRequest();
 				// if window.ActiveXObject is available than the user is using
 				// IE...so we have to create the newest version XMLHttp object
 			} else if (window.ActiveXObject) {
@@ -22,12 +22,12 @@
 					}
 				}
 			}
-		};
+		}
 
 		function element(id) {
-			var element = document.querySelector(id);
-			return element;
-		};
+			var el = document.querySelector(id);
+			return el;
+		}
 
 		function length(obj) {
 			var count = 0;
@@ -37,18 +37,17 @@
 				}
 			}
 			return count;
-		};
+		}
 
 		// Get Params
 		function parms(data) {
-			var parms = '';
+			var params = '';
 			count = 0;
 			for ( var key in data) {
 				count++;
-				parms += (length(data) == count) ? key + "=" + data[key] : key
-						+ "=" + data[key] + "&";
+				params += (length(data) == count) ? key + "=" + data[key] : key + "=" + data[key] + "&";
 			}
-			return parms;
+			return params;
 		}
 
 		// As innerHTML
