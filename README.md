@@ -7,14 +7,14 @@ nardy
 
 API para substiuir o `jQuery`.
 
-# Instalação
+## Instalação
 
-## Instalando manualmente:
+### Instalando manualmente:
 
 ```
 <script src='nardy.min.js'></script>
 ```
-## Instalando via bower:
+### Instalando via bower:
 
 ```
 bower install nardy
@@ -22,13 +22,13 @@ bower install nardy
 
 Ainda não diponível.
 
-## Usando a API com RequireJS
+### Usando a API com RequireJS
 
 Em desenvolvimento...
 
-# Documentação
+## Documentação
 
-## Seletores e métodos
+### Seletores e métodos
 
 1. $ : Seletor de elementos.
 
@@ -145,7 +145,8 @@ Os elementos que suportam encadeamento são:
 * text
 * attr
 
-# Referências
+## Referências
 
 [http://code.tutsplus.com/tutorials/from-jquery-to-javascript-a-reference--net-23703](http://code.tutsplus.com/tutorials/from-jquery-to-javascript-a-reference--net-23703)
+
 [http://sharedfil.es/js-48hIfQE4XK.html](http://sharedfil.es/js-48hIfQE4XK.html)
