@@ -1,20 +1,14 @@
 (function() {
 	var Nardy = function() {
-		// XmlHttp
+		var t = '';
 		function _xmlhttp() {
-			// If XMLHttpRequest is available then using it
 			if (typeof XMLHttpRequest !== undefined) {
 				return new XMLHttpRequest();
-				// if window.ActiveXObject is available than the user is using
-				// IE...so we have to create the newest version XMLHttp object
 			} else if (window.ActiveXObject) {
 				var version = [ 'MSXML2.XMLHttp.5.0', 'MSXML2.XMLHttp.4.0',
-						'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp',
-						'Microsoft.XMLHttp' ], xmlHttp;
-				// In this array we are starting from the first element (newest
-				// version) and trying to create it. If there is an
-				// exception thrown we are handling it (and doing nothing ^^)
-				for ( var i = 0; i < version.length; i++) {
+				'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp',
+				'Microsoft.XMLHttp' ], xmlHttp;
+				for (var i = 0; i < version.length; i++) {
 					try {
 						xmlHttp = new ActiveXObject(version[i]);
 						return xmlHttp;
@@ -49,47 +43,75 @@
 			}
 			return params;
 		}
+		this.$ = function(el) {
+			t = document.querySelector(el);
+			return this;
+		};
 
-		// As innerHTML
+		// As innerHTML -- Don't use
 		this.html = function(options) {
 			_el = element(options.id);
 			_el.innerHTML = options.text;
 		};
 
 		// As append
-		this.append = function(options) {
-			_el = element(options.id);
-			_el.innerHTML += options.text;
+		this.append = function(element) {
+			t = t.appendChild(document.createElement(element));
+			return this;
+		};
+
+		// As text
+		this.text = function(text) {
+			t.appendChild(document.createTextNode(text));
+			return this;
+		};
+
+		// As attr
+		this.attr = function(attr, value) {
+			t.setAttribute(attr, value);
+			return this;
+		};
+
+		// As value
+		this.val = function(valor) {
+			if (valor === undefined) {
+				return t.value;
+			} else {
+				t.value = valor;
+			}
 		};
 
 		// As click
-		this.click = function(id, callback) {
-			_el = element(id);
-			_el.addEventListener("click", callback);
+		this.click = function(callback) {
+			t.addEventListener("click", callback);
 		};
-		
+
 		// As change
-		this.change = function(id, callback) {
-			_el = element(id);
-			_el.addEventListener("change", callback);
+		this.change = function(callback) {
+			t.addEventListener("change", callback);
 		};
-		
+
 		// As value
-		this.select = function(id, teste) {
-			_el = element(id);
-			this.val(teste.local, _el.options[_el.selectedIndex].text);
-		};
-		
-		this.val = function(id, valor) {
-			_el = element(id);
-			_el.value = valor;
+		this.selected = function() {
+			return t.options[t.selectedIndex].text;
 		};
 
 		// As each
 		this.each = function(data, callback) {
 			for ( var key in data) {
-				callback(key, data[key]);
+				if (data.hasOwnProperty(key)) {
+					callback(key, data[key]);
+				}
 			}
+		};
+
+		this.empty = function() {
+			while (t.firstChild)
+				t.removeChild(t.firstChild);
+		};
+
+		this.addClass = function(css) {
+			t.classList.add(css);
 		};
 
 		// App Get
@@ -106,27 +128,18 @@
 				if (xhr.readyState < 4) {
 					return;
 				}
-
 				if (xhr.status !== 200) {
 					return;
 				}
-
 				// all is well
 				if (xhr.readyState === 4) {
 					callback(xhr.responseText);
 				}
 			}
-			
-			var url = (parms(options.data) === '') ? options.url : options.url+"?"+parms(options.data);
-			
+			var url = (parms(options.data) === '') ? options.url : options.url + "?" + parms(options.data);
 			xhr.open('GET', url, true);
 			xhr.send('');
-
 		};
 	};
-
 	window.Nardy = Nardy;
-
 }).call(this);
-
-var $_ = new Nardy();
