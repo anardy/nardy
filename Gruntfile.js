@@ -2,12 +2,12 @@ module.exports = function(grunt){
 	
   	grunt.initConfig({
 		jshint: {
-			all: ['assets/js/*.js']
+			all: ['js/*.js']
 		},
 		uglify: {
 			build: {
 				files: {
-					'build/js/nardy.min.js': ['assets/js/nardy.js']
+					'js/build/nardy.min.js': ['js/nardy.js']
 				}
 			}
 		},

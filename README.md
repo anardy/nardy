@@ -14,6 +14,7 @@ API para substiuir o `jQuery`.
 ```
 <script src='nardy.min.js'></script>
 ```
+
 ### Instalando via bower:
 
 ```
@@ -24,7 +25,11 @@ Ainda não diponível.
 
 ### Usando a API com RequireJS
 
-Em desenvolvimento...
+```js
+define(['nardy'], function(Nardy) {
+	Nardy.$(element).text('RequireJS');
+});
+```
 
 ## Documentação
 
@@ -32,94 +37,87 @@ Em desenvolvimento...
 
 1. $ : Seletor de elementos.
 
-```
-$_.$(elemento)
+```js
+Nardy.$(elemento)
 ```
 
 2. append : cria um elemento
 
-```
-$_.$(element).append(elemento)
+```js
+Nardy.$(element).append(elemento)
 ```
 
 3. text : adição de texto em um elemento
 
-```
-$_.$(element).text('texto')
+```js
+Nardy.$(element).text('texto')
 ```
 
 4. attr : alterar alguma propriedade de um elemento
 
-```
-$_.$(element).attr('attr', value)
+```js
+Nardy.$(element).attr('attr', value)
 ```
 
-6. val : pega o valor de um elemento
+5. val : pega o valor de um elemento
 
 Setar o valor no atribudo value do elemento: 
 
-```
-$_.('element').val('texto')
+```js
+Nardy.$('element').val('texto')
 ```
 
-Pegar o valor do atributo value do element: `$_.('element').val()`
+Pegar o valor do atributo value do element: `Nardy.$('element').val()`
 
-5. click : funcionalidade de clicar em um elemento
+6. click : funcionalidade de clicar em um elemento
 
-```
-$_.$(elemento).click(function() {
+```js
+Nardy.$(elemento).click(function() {
 	/* ação após o click */
 })
 ```
 
-6. change : funcionalidade de change do elemento select
+7. change : funcionalidade de change do elemento select
 
-```
-$_.$(elemento).change(function() {
+```js
+Nardy.$(elemento).change(function() {
 	/* ação após change */
 })
 ```
 
-7. each : percorrer uma lista de objetos
+8. each : percorrer uma lista de objetos
 
-```
-
-$_.each(lista, function(i, item) {
+```js
+Nardy.each(lista, function(i, item) {
 	/* ação ao percorrer a lista */
 })
 ```
 
-8. selected : recupera o texto do select selecionado
+9. selected : recupera o texto do select selecionado
 
-```
-$_.$(elemento).selected()
-```
-
-9. empty : limpar um elemento
-
-```
-$_.$(elemento).empty()
+```js
+Nardy.$(elemento).selected()
 ```
 
-10. addClass : adiconar estilo ao elemento
+10. empty : limpar um elemento
 
+```js
+Nardy.$(elemento).empty()
 ```
-$_.$(elemento).addClass('estilo')
+
+11. addClass : adiconar estilo ao elemento
+
+```js
+Nardy.$(elemento).addClass('estilo')
 ```
 
 ## Chamadas Ajax
 
 1. Http POST
 
-EXEMPLO
-
 2. Http GET
 
-EXEMPLO
-
 3. Generico
-
-EXEMPLO
 
 ### Opções
 
@@ -134,8 +132,8 @@ Alguns dos métodos informados acima aceitam encadeamento, ou seja, consigo cham
 
 Exemplo:
 
-```
-$_.$(elemento).text('texto').addClass('estilo');
+```js
+Nardy.$(elemento).text('texto').addClass('estilo');
 ```
 
 Os elementos que suportam encadeamento são:
@@ -150,3 +148,5 @@ Os elementos que suportam encadeamento são:
 [http://code.tutsplus.com/tutorials/from-jquery-to-javascript-a-reference--net-23703](http://code.tutsplus.com/tutorials/from-jquery-to-javascript-a-reference--net-23703)
 
 [http://sharedfil.es/js-48hIfQE4XK.html](http://sharedfil.es/js-48hIfQE4XK.html)
+
+[http://code.tutsplus.com/articles/the-beginners-guide-to-type-coercion-a-practical-example--cms-21998](http://code.tutsplus.com/articles/the-beginners-guide-to-type-coercion-a-practical-example--cms-21998)
