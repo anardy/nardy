@@ -5,7 +5,7 @@ nardy
 
 # Nardy.js
 
-API para substiuir o `jQuery`.
+API estilo `jQuery`.
 
 ## Instalação
 
